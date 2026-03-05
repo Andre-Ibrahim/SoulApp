@@ -8,6 +8,14 @@ import { User } from './users/user.entity';
 import { Event } from './events/event.entity';
 import { Availability } from './events/availability.entity';
 
+@Controller()
+class HealthController {
+  @Get('health')
+  health() {
+    return { status: 'ok', timestamp: new Date().toISOString() };
+  }
+}
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -23,11 +31,3 @@ import { Availability } from './events/availability.entity';
   controllers: [HealthController],
 })
 export class AppModule {}
-
-@Controller()
-class HealthController {
-  @Get('health')
-  health() {
-    return { status: 'ok', timestamp: new Date().toISOString() };
-  }
-}
