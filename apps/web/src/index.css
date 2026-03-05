@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(245, 182, 64, 0.35), transparent 60%),
+    radial-gradient(900px 500px at 85% 10%, rgba(15, 122, 122, 0.25), transparent 55%),
+    linear-gradient(180deg, rgba(246, 242, 233, 0.95), rgba(246, 242, 233, 0.9));
+}
+
+.card {
+  @apply rounded-3xl border border-black/10 bg-white/85 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)] backdrop-blur;
+}
+
+.btn {
+  @apply rounded-full px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5;
+}
+
+.btn-primary {
+  @apply btn bg-ink text-cream shadow-lg shadow-black/20 hover:bg-black;
+}
+
+.btn-outline {
+  @apply btn border border-ink/30 text-ink hover:border-ink hover:bg-white/70;
+}
+
+.badge {
+  @apply rounded-full px-3 py-1 text-xs font-semibold;
+}
+
+.nav-chip {
+  @apply rounded-full border border-ink/15 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-ink/70 transition hover:border-ink hover:text-ink;
+}
+
+.section-title {
+  @apply font-display text-2xl md:text-3xl text-ink;
+}
