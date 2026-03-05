@@ -18,7 +18,7 @@ FROM nginx:1.27-alpine
 COPY apps/web/nginx.conf.template /etc/nginx/conf.d/default.conf.template
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-ENV PORT=8080
-EXPOSE 8080
+ENV PORT=3000
+EXPOSE 3000
 
 CMD ["sh", "-c", "echo \"PORT=$PORT\" && envsubst '$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
