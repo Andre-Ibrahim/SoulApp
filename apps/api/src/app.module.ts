@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Controller, Get } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { EventsModule } from './events/events.module';
@@ -20,5 +20,14 @@ import { Availability } from './events/availability.entity';
     UsersModule,
     EventsModule,
   ],
+  controllers: [HealthController],
 })
 export class AppModule {}
+
+@Controller()
+class HealthController {
+  @Get('health')
+  health() {
+    return { status: 'ok', timestamp: new Date().toISOString() };
+  }
+}
