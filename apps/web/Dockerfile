@@ -15,7 +15,10 @@ RUN npm run build
 
 FROM nginx:1.27-alpine
 
-COPY apps/web/nginx.conf /etc/nginx/conf.d/default.conf
+COPY apps/web/nginx.conf.template /etc/nginx/conf.d/default.conf.template
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-EXPOSE 80
+ENV PORT=8080
+EXPOSE 8080
+
+CMD ["sh", "-c", "envsubst '$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
