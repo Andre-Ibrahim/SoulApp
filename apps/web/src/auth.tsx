@@ -11,7 +11,6 @@ type AuthContextValue = {
     password: string,
     firstName: string,
     lastName: string,
-    medicareNumber?: string,
     adminSignupSecret?: string,
   ) => Promise<void>;
   updateUser: (user: User) => void;
@@ -43,17 +42,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     password: string,
     firstName: string,
     lastName: string,
-    medicareNumber?: string,
     adminSignupSecret?: string,
   ) => {
-    const res = await apiRegister(
-      email,
-      password,
-      firstName,
-      lastName,
-      medicareNumber,
-      adminSignupSecret,
-    );
+    const res = await apiRegister(email, password, firstName, lastName, adminSignupSecret);
     setToken(res.accessToken);
     setUser(res.user);
     localStorage.setItem(TOKEN_KEY, res.accessToken);

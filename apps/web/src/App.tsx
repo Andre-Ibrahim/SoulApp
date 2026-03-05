@@ -26,11 +26,7 @@ function Shell() {
         <header className="rounded-3xl border border-ink/10 bg-white/70 px-6 py-5 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.35)] backdrop-blur">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
-              <p className="text-xs uppercase tracking-[0.4em] text-ink/60">SoulApp</p>
-              <h1 className="font-display text-4xl text-ink">Event Availability Board</h1>
-              <p className="mt-2 text-sm text-ink/60">
-                Post events, collect availability, and keep the team aligned.
-              </p>
+              <h1 className="font-display text-4xl text-ink">Soul App</h1>
           </div>
           {user && (
             <div className="flex flex-wrap items-center gap-3">
@@ -79,7 +75,6 @@ function AuthPanel() {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [medicareNumber, setMedicareNumber] = useState('');
   const [adminSecret, setAdminSecret] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -97,7 +92,6 @@ function AuthPanel() {
           password,
           firstName,
           lastName,
-          medicareNumber || undefined,
           adminSecret || undefined,
         );
       }
@@ -155,14 +149,6 @@ function AuthPanel() {
                   value={lastName}
                   onChange={(event) => setLastName(event.target.value)}
                   required
-                />
-              </label>
-              <label className="flex flex-col gap-2 text-sm font-semibold">
-                Medicare number
-                <input
-                  className="rounded-xl border border-ink/20 bg-white px-4 py-2"
-                  value={medicareNumber}
-                  onChange={(event) => setMedicareNumber(event.target.value)}
                 />
               </label>
               <label className="flex flex-col gap-2 text-sm font-semibold">

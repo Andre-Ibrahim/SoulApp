@@ -17,7 +17,6 @@ export class AuthService {
     password: string,
     firstName: string,
     lastName: string,
-    medicareNumber?: string,
     adminSignupSecret?: string,
   ) {
     const existing = await this.usersService.findByEmail(email);
@@ -30,7 +29,7 @@ export class AuthService {
       email,
       firstName,
       lastName,
-      medicareNumber: medicareNumber ?? null,
+      medicareNumber: null,
       passwordHash,
       role,
     });

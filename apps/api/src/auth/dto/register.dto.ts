@@ -10,10 +10,6 @@ export class RegisterDto {
   @IsString()
   lastName!: string;
 
-  @IsOptional()
-  @IsString()
-  medicareNumber?: string;
-
   @IsString()
   @MinLength(8)
   password!: string;

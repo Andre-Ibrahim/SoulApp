@@ -14,7 +14,6 @@ export class AuthController {
       dto.password,
       dto.firstName,
       dto.lastName,
-      dto.medicareNumber,
       dto.adminSignupSecret,
     );
   }
