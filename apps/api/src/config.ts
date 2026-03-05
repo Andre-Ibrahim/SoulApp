@@ -15,6 +15,7 @@ export const config = {
   jwtSecret: process.env.JWT_SECRET || 'dev_jwt_secret',
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || '7d',
   adminSignupSecret: process.env.ADMIN_SIGNUP_SECRET || 'dev_admin_secret',
+  userSignupSecret: process.env.USER_SIGNUP_SECRET || 'dev_user_secret',
   appTimezone: process.env.APP_TIMEZONE || 'America/Montreal',
 };
 

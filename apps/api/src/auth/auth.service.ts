@@ -17,11 +17,15 @@ export class AuthService {
     password: string,
     firstName: string,
     lastName: string,
+    userSignupSecret: string,
     adminSignupSecret?: string,
   ) {
     const existing = await this.usersService.findByEmail(email);
     if (existing) {
       throw new BadRequestException('Email already in use');
+    }
+    if (userSignupSecret !== config.userSignupSecret) {
+      throw new BadRequestException('Invalid signup secret');
     }
     const passwordHash = await bcrypt.hash(password, 10);
     const role = adminSignupSecret === config.adminSignupSecret ? UserRole.ADMIN : UserRole.USER;

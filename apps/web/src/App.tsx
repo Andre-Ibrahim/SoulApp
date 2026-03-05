@@ -75,6 +75,7 @@ function AuthPanel() {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [userSecret, setUserSecret] = useState('');
   const [adminSecret, setAdminSecret] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -92,6 +93,7 @@ function AuthPanel() {
           password,
           firstName,
           lastName,
+          userSecret,
           adminSecret || undefined,
         );
       }
@@ -148,6 +150,16 @@ function AuthPanel() {
                   className="rounded-xl border border-ink/20 bg-white px-4 py-2"
                   value={lastName}
                   onChange={(event) => setLastName(event.target.value)}
+                  required
+                />
+              </label>
+              <label className="flex flex-col gap-2 text-sm font-semibold">
+                Signup secret
+                <input
+                  className="rounded-xl border border-ink/20 bg-white px-4 py-2"
+                  type="password"
+                  value={userSecret}
+                  onChange={(event) => setUserSecret(event.target.value)}
                   required
                 />
               </label>

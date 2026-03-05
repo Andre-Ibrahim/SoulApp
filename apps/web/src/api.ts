@@ -55,6 +55,7 @@ export function register(
   password: string,
   firstName: string,
   lastName: string,
+  userSignupSecret: string,
   adminSignupSecret?: string,
 ) {
   return request<{ accessToken: string; user: User }>(`/auth/register`, {
@@ -64,6 +65,7 @@ export function register(
       password,
       firstName,
       lastName,
+      userSignupSecret,
       adminSignupSecret,
     }),
   });

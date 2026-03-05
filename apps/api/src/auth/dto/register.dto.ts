@@ -11,6 +11,9 @@ export class RegisterDto {
   lastName!: string;
 
   @IsString()
+  userSignupSecret!: string;
+
+  @IsString()
   @MinLength(8)
   password!: string;
 
